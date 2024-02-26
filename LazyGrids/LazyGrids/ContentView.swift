@@ -22,6 +22,7 @@ struct ContentView: View {
         //        })
         
         let devices = DeviceRepoaitory.all
+        
         let columnas = [
             GridItem(.flexible(minimum: 90), spacing: 20),
             GridItem(.flexible(minimum: 90), spacing: 20),
@@ -32,6 +33,8 @@ struct ContentView: View {
                 LazyVGrid(columns: columnas, spacing: 20, content: {
                     ForEach(devices, content: Celda.init)
                 })
+                .padding(50)
+                .navigationTitle("Dispositivos ")
             }
         }
     }
