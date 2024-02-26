@@ -24,15 +24,15 @@ struct ContentView: View {
         let devices = DeviceRepoaitory.all
         
         let columnas = [
+            GridItem(.flexible(minimum: 90, maximum: 100), spacing: 20),
             GridItem(.flexible(minimum: 90), spacing: 20),
-            GridItem(.flexible(minimum: 90), spacing: 20),
-            GridItem(.flexible(minimum: 90), spacing: 20),
+            GridItem(.flexible(minimum: 90, maximum: 100), spacing: 20),
         ] ///El código se queda considerablemente más limpio si declaramos las columnas de esta manera
         NavigationView{
-            ScrollView {
-                LazyVGrid(columns: columnas, spacing: 20, content: {
+            ScrollView(.horizontal) {
+                LazyHGrid(rows: columnas, spacing: 20){
                     ForEach(devices, content: Celda.init)
-                })
+                }
                 .padding(50)
                 .navigationTitle("Dispositivos ")
             }
